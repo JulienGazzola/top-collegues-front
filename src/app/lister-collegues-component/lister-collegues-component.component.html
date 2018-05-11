@@ -1,0 +1,7 @@
+<button class = "btn" (click)="refresh()">Rafraichir la liste</button>
+
+<div class="row">
+    <div class="col-sm" *ngFor="let collegue of collegues">
+        <app-collegue-component [collegue]="collegue"></app-collegue-component>
+    </div>
+</div>

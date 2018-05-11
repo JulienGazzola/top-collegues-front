@@ -1,0 +1,24 @@
+import { Component, OnInit, EventEmitter, Output} from '@angular/core';
+import {Avis} from '../models';
+
+@Component({
+  selector: 'app-avis-component',
+  templateUrl: './avis-component.component.html',
+  styleUrls: ['./avis-component.component.css']
+})
+export class AvisComponentComponent implements OnInit {
+  @Output() aime:EventEmitter<Avis> = new EventEmitter<Avis>();
+  constructor() {
+  }
+
+  ngOnInit() {
+  }
+
+  onClickAime() {
+    this.aime.emit(Avis.AIMER);
+  }
+
+  onClickDeteste() {
+    this.aime.emit(Avis.DETESTER);
+  }
+}
