@@ -1,8 +1,8 @@
 <div class="card col-sm-12">
     <img class="card-img-top" src={{collegue.imageUrl}} alt="profil">
     <div class="card-body">
-      <h5 class="card-title"><a routerLink="/collegues/{{collegue.pseudo}}">{{collegue.pseudo}}</a></h5>
-      <p class="card-text">score : {{collegue.score}}</p>
+      <h5 class="card-title"><a routerLink="/collegues/{{collegue.pseudo}}">{{collegue.pseudo | uppercase}}</a></h5>
+      <p class="card-text" [innerHTML]="'Score :'+ (collegue.score | score)"></p>
       <app-avis-component (aime)=onClick($event)></app-avis-component>
     </div>
 </div>

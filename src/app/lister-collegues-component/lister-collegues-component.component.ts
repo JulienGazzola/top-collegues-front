@@ -8,6 +8,7 @@ import {Collegue, Avis} from '../models';
 })
 export class ListerColleguesComponentComponent implements OnInit {
   @Input() collegues:Collegue[];
+  saisiePseudo:string = "";
 
   constructor() {
 

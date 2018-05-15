@@ -14,6 +14,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
 import { DetailCollegueComponent } from './detail-collegue/detail-collegue.component';
 import { PageNonTrouveeComponent } from './page-non-trouvee/page-non-trouvee.component';
+import { ScorePipe } from './pipes/score.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 
 const appRoutes: Routes = [
   { path : 'accueil', component : AccueilComponent},
@@ -35,7 +37,9 @@ const appRoutes: Routes = [
     AccueilComponent,
     MenuComponent,
     DetailCollegueComponent,
-    PageNonTrouveeComponent
+    PageNonTrouveeComponent,
+    ScorePipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

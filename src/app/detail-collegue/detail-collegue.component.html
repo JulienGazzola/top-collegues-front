@@ -1,8 +1,8 @@
 <div class="card col-sm-12">
     <img class="card-img-top" src={{collegue.imageUrl}} alt="profil">
     <div class="card-body">
-      <h5 class="card-title">{{collegue.pseudo}}</h5>
-      <p class="card-text">Score : {{collegue.score}}</p>
+      <h5 class="card-title">{{collegue.pseudo | uppercase}}</h5>
+      <p class="card-text" [innerHTML]="'Score :'+ (collegue.score | score)"></p>
       <p class="card-text">Nom : {{collegue.nom}}</p>
       <p class="card-text">Prenom : {{collegue.prenom}}</p>
       <p class="card-text">Adresse : {{collegue.adresse}}</p>

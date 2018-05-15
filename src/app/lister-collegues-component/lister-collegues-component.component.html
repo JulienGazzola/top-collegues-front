@@ -1,7 +1,14 @@
-<button class = "btn" (click)="refresh()">Rafraichir la liste</button>
-
-<div class="row">
-    <div class="col-sm" *ngFor="let collegue of collegues">
-        <app-collegue-component [collegue]="collegue"></app-collegue-component>
+<div>
+    <div class="row"><button class = "btn" (click)="refresh()">Rafraichir la liste</button><br></div>
+    <div class="row">
+            <div class="form-inline">
+                    <span>Filtrer par pseudo :</span>
+                    <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search" id="pseudo" #saisieInput (keyup)="saisiePseudo = saisieInput.value">
+            </div>
+    </div>
+    <div class="row">
+            <div class="col-sm" *ngFor="let collegue of collegues | filter: saisiePseudo ">
+            <app-collegue-component [collegue]="collegue"></app-collegue-component>
+        </div>
     </div>
 </div>
