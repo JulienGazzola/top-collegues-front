@@ -1,7 +1,8 @@
-<app-bandeau-component></app-bandeau-component>
-
-<h1>Liste des collègues</h1>
-<app-lister-collegues-component [collegues]="desCollegues"></app-lister-collegues-component>
-
-<h1>Historique</h1>
-<app-historique-votes-component [votes]="votes"></app-historique-votes-component>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6"><h1>Liste des collègues</h1>
+            <app-lister-collegues-component [collegues]="desCollegues"></app-lister-collegues-component></div>
+        <div class="col-sm-6"><h1>Historique</h1>
+            <app-historique-votes-component [votes]="votes"></app-historique-votes-component></div>
+        </div>
+</div>

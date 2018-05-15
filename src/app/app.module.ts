@@ -10,6 +10,18 @@ import { ListerColleguesComponentComponent } from './lister-collegues-component/
 import { HistoriqueVotesComponentComponent } from './historique-votes-component/historique-votes-component.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
+import { MenuComponent } from './menu/menu.component';
+import { DetailCollegueComponent } from './detail-collegue/detail-collegue.component';
+import { PageNonTrouveeComponent } from './page-non-trouvee/page-non-trouvee.component';
+
+const appRoutes: Routes = [
+  { path : 'accueil', component : AccueilComponent},
+  { path : 'demo', component : DemoComponent},
+  { path: '',   redirectTo: '/accueil', pathMatch: 'full' },
+  { path: '**',  component: PageNonTrouveeComponent },
+  { path : 'collegues/:pseudo', component : DetailCollegueComponent}
+];
 
 @NgModule({
   declarations: [
@@ -20,11 +32,15 @@ import { HttpClientModule } from '@angular/common/http';
     CollegueComponentComponent,
     ListerColleguesComponentComponent,
     HistoriqueVotesComponentComponent,
-    AccueilComponent
+    AccueilComponent,
+    MenuComponent,
+    DetailCollegueComponent,
+    PageNonTrouveeComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

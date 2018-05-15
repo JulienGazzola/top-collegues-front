@@ -9,8 +9,6 @@ import {Avis, Collegue} from '../models';
 })
 export class AvisComponentComponent implements OnInit {
   @Output() aime:EventEmitter<Avis> = new EventEmitter<Avis>();
-  @Input() estAimer:boolean;
-  @Input() estDetestable:boolean;
 
   constructor() {
   }

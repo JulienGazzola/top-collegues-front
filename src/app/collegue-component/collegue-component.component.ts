@@ -11,10 +11,6 @@ export class CollegueComponentComponent implements OnInit {
   @Input() collegue:Collegue;
   @Output() vote: EventEmitter<Vote> = new EventEmitter<Vote>();
 
-  avis: Avis;
-
-  estAimer: boolean;
-  estDetestable: boolean;
   constructor(private _collegueServ: CollegueService) { 
   }
 
@@ -25,8 +21,6 @@ export class CollegueComponentComponent implements OnInit {
     this._collegueServ.donnerUnAvis(this.collegue, $event)
       .then(c => {
         this.collegue = c;
-        this.estAimer = (this.collegue.score >= 1000)
-        this.estDetestable = (this.collegue.score <= -1000)
         this.vote.emit(new Vote($event, new Collegue(this.collegue.imageUrl, this.collegue.score, this.collegue.pseudo)))
       })
       .catch(err => console.log(err))
