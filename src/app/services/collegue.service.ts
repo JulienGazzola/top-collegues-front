@@ -12,13 +12,12 @@ export class CollegueService {
 
   constructor(private _http:HttpClient) { }
 
-  listerCollegues() {
-    this._http.get(URL_BACKEND)
-      .toPromise()
-      .then((data:any) => {
-        return data;
-      }, (error:any) => {
-        return error;
-      });
+  listerCollegues():Promise<Collegue[]> {
+    return this._http.get<Collegue[]>(`${URL_BACKEND}/collegues`)
+      .toPromise();
+  }
+  donnerUnAvis(unCollegue:Collegue, avis:Avis):Promise<Collegue> {
+    return this._http.patch<Collegue>(`${URL_BACKEND}/collegues${unCollegue.pseudo}`, {action : Avis})
+      .toPromise();
   }
 }

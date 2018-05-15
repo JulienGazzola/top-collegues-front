@@ -1,8 +1,8 @@
 <div class="card col-sm-12">
-    <img class="card-img-top" src={{collegue.photo}} alt="profil">
+    <img class="card-img-top" src={{collegue.imageUrl}} alt="profil">
     <div class="card-body">
       <h5 class="card-title">{{collegue.pseudo}}</h5>
       <p class="card-text">score : {{collegue.score}}</p>
-      <app-avis-component (aime)="onClick()"></app-avis-component>
+      <app-avis-component (aime)=onClick($event) [estAimer]="estAimer" [estDetestable]="estDetestable"></app-avis-component>
     </div>
-  </div>
+</div>
