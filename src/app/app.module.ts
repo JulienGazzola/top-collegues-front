@@ -18,9 +18,9 @@ import { PageNonTrouveeComponent } from './page-non-trouvee/page-non-trouvee.com
 const appRoutes: Routes = [
   { path : 'accueil', component : AccueilComponent},
   { path : 'demo', component : DemoComponent},
+  { path : 'collegues/:pseudo', component : DetailCollegueComponent},
   { path: '',   redirectTo: '/accueil', pathMatch: 'full' },
-  { path: '**',  component: PageNonTrouveeComponent },
-  { path : 'collegues/:pseudo', component : DetailCollegueComponent}
+  { path: '**',  component: PageNonTrouveeComponent }
 ];
 
 @NgModule({

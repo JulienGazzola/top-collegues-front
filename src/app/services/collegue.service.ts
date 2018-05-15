@@ -20,4 +20,8 @@ export class CollegueService {
     return this._http.patch<Collegue>(`${URL_BACKEND}/collegues/${unCollegue.pseudo}`, {action : avis})
       .toPromise();
   }
+
+  trouverCollegue(pseudo:string) : Promise<Collegue> {
+    return this._http.get<Collegue>(`${URL_BACKEND}/collegues/${pseudo}`).toPromise();
+  }
 }
