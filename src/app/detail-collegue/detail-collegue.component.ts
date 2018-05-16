@@ -10,7 +10,7 @@ import { CollegueService } from '../services/collegue.service';
 })
 export class DetailCollegueComponent implements OnInit {
   pseudo:string;
-  collegue:Collegue = new Collegue(null,null,null,null,null,null);
+  collegue:Collegue = new Collegue();
   @Output() vote: EventEmitter<Vote> = new EventEmitter<Vote>();
 
   constructor(private route: ActivatedRoute, private _colServ:CollegueService) { 
@@ -27,7 +27,7 @@ export class DetailCollegueComponent implements OnInit {
     this._colServ.donnerUnAvis(this.collegue, $event)
       .then(c => {
         this.collegue = c;
-        this.vote.emit(new Vote($event, new Collegue(this.collegue.pseudo, this.collegue.score, this.collegue.nom, this.collegue.prenom, this.collegue.adresse, this.collegue.imageUrl)))
+        this.vote.emit(new Vote($event, this.collegue))
       })
       .catch(err => console.log(err))
   }

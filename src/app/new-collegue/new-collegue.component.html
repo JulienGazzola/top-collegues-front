@@ -1,0 +1,28 @@
+<div class="container">
+  <h1>Nouveau Collegue</h1>
+  <form (ngSubmit)="submit()" #newCollegue="ngForm">
+
+      <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-sm">Matricule</span>
+        </div>
+        <input type="text" name="matricule" #matricule="ngModel" [(ngModel)]="collegue.matricule" required class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+      </div>
+
+      <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-sm">Pseudo</span>
+        </div>
+        <input type="text" name="pseudo" #pseudo="ngModel" [(ngModel)]="collegue.pseudo" required minlength="2" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+      </div>
+
+      <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-sm">URL image</span>
+        </div>
+        <input type="text" name="imageUrl" #imageUrl="ngModel" [(ngModel)]="collegue.imageUrl" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+      </div>
+
+      <button class="btn btn-success" (click)="submit()" type="submit" [disabled]="!newCollegue.form.valid">Ajouter</button>
+  </form>
+</div>

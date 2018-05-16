@@ -16,10 +16,13 @@ import { DetailCollegueComponent } from './detail-collegue/detail-collegue.compo
 import { PageNonTrouveeComponent } from './page-non-trouvee/page-non-trouvee.component';
 import { ScorePipe } from './pipes/score.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
+import { FormsModule }   from '@angular/forms';
+import { NewCollegueComponent } from './new-collegue/new-collegue.component';
 
 const appRoutes: Routes = [
   { path : 'accueil', component : AccueilComponent},
   { path : 'demo', component : DemoComponent},
+  { path : 'collegues/nouveau', component : NewCollegueComponent},
   { path : 'collegues/:pseudo', component : DetailCollegueComponent},
   { path: '',   redirectTo: '/accueil', pathMatch: 'full' },
   { path: '**',  component: PageNonTrouveeComponent }
@@ -39,12 +42,14 @@ const appRoutes: Routes = [
     DetailCollegueComponent,
     PageNonTrouveeComponent,
     ScorePipe,
-    FilterPipe
+    FilterPipe,
+    NewCollegueComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
