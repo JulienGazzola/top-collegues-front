@@ -1,6 +1,7 @@
 export enum Avis {AIMER, DETESTER};
 
 export class Collegue {
+    matricule:string;
     pseudo:string;
     score:number;
     nom:string;

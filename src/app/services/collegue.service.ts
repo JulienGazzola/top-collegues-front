@@ -22,6 +22,12 @@ export class CollegueService {
   }
 
   trouverCollegue(pseudo:string) : Promise<Collegue> {
-    return this._http.get<Collegue>(`${URL_BACKEND}/collegues/${pseudo}`).toPromise();
+    return this._http.get<Collegue>(`${URL_BACKEND}/collegues/${pseudo}`)
+      .toPromise();
+  }
+  
+  ajouterCollegue(collegue:Collegue) : Promise<Collegue> {
+    return this._http.post<Collegue>(`${URL_BACKEND}/collegues/nouveau`, collegue)
+      .toPromise();
   }
 }

@@ -7,6 +7,7 @@
           <span class="input-group-text" id="inputGroup-sizing-sm">Matricule</span>
         </div>
         <input type="text" name="matricule" #matricule="ngModel" [(ngModel)]="collegue.matricule" required class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+        <div *ngIf="matricule.dirty  && matricule.invalid">Opps remplir le champs</div>
       </div>
 
       <div class="input-group input-group-sm mb-3">
@@ -14,6 +15,7 @@
           <span class="input-group-text" id="inputGroup-sizing-sm">Pseudo</span>
         </div>
         <input type="text" name="pseudo" #pseudo="ngModel" [(ngModel)]="collegue.pseudo" required minlength="2" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+        <div *ngIf="pseudo.dirty  && pseudo.invalid">Le pseudo doit avoir minimum 2 caractères</div>
       </div>
 
       <div class="input-group input-group-sm mb-3">
@@ -23,6 +25,6 @@
         <input type="text" name="imageUrl" #imageUrl="ngModel" [(ngModel)]="collegue.imageUrl" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
       </div>
 
-      <button class="btn btn-success" (click)="submit()" type="submit" [disabled]="!newCollegue.form.valid">Ajouter</button>
+      <button class="btn btn-success" type="submit" [disabled]="!newCollegue.form.valid">Ajouter</button>
   </form>
 </div>
