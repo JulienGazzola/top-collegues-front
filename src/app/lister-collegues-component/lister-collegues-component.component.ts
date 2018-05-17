@@ -9,6 +9,7 @@ import { CollegueService } from '../services/collegue.service';
 })
 export class ListerColleguesComponentComponent implements OnInit {
   desCollegues:Collegue[];
+  saisiePseudo:string = "";
 
   constructor(private _collegueServ: CollegueService) { }
 
