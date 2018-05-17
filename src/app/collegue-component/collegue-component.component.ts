@@ -1,5 +1,5 @@
 import { Component, OnInit,EventEmitter, Input, Output} from '@angular/core';
-import {Collegue, Avis, Vote} from '../models';
+import { Collegue, Avis, Vote } from '../models';
 import { CollegueService } from '../services/collegue.service';
 
 @Component({
@@ -9,7 +9,6 @@ import { CollegueService } from '../services/collegue.service';
 })
 export class CollegueComponentComponent implements OnInit {
   @Input() collegue:Collegue;
-  @Output() vote: EventEmitter<Vote> = new EventEmitter<Vote>();
 
   constructor(private _collegueServ: CollegueService) { 
   }
@@ -19,10 +18,8 @@ export class CollegueComponentComponent implements OnInit {
 
   onClick($event: Avis) {
     this._collegueServ.donnerUnAvis(this.collegue, $event)
-      .then(c => {
+      .subscribe(c => {
         this.collegue = c;
-        this.vote.emit(new Vote($event, this.collegue))
-      })
-      .catch(err => console.log(err))
+      },err => console.log(err))
   }
 }

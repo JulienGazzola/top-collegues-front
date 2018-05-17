@@ -16,8 +16,7 @@ export class DetailCollegueComponent implements OnInit {
   constructor(private route: ActivatedRoute, private _colServ:CollegueService) { 
     this.pseudo = route.snapshot.paramMap.get("pseudo");
     this._colServ.trouverCollegue(this.pseudo)
-      .then(col => this.collegue = col)
-      .catch(err => console.log(err));
+      .subscribe(col => this.collegue = col, err => console.log(err));
   }
 
   ngOnInit() {
@@ -25,10 +24,9 @@ export class DetailCollegueComponent implements OnInit {
 
   onClick($event: Avis) {
     this._colServ.donnerUnAvis(this.collegue, $event)
-      .then(c => {
+      .subscribe(c => {
         this.collegue = c;
         this.vote.emit(new Vote($event, this.collegue))
-      })
-      .catch(err => console.log(err))
+      },err => console.log(err))
   }
 }

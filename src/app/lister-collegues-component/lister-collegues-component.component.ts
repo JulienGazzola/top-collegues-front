@@ -1,5 +1,6 @@
 import { Component, OnInit, Input} from '@angular/core';
-import {Collegue, Avis} from '../models';
+import {Collegue, Avis, Vote} from '../models';
+import { CollegueService } from '../services/collegue.service';
 
 @Component({
   selector: 'app-lister-collegues-component',
@@ -7,14 +8,15 @@ import {Collegue, Avis} from '../models';
   styleUrls: ['./lister-collegues-component.component.css']
 })
 export class ListerColleguesComponentComponent implements OnInit {
-  @Input() collegues:Collegue[];
-  saisiePseudo:string = "";
+  desCollegues:Collegue[];
 
-  constructor() {
-
-  }
+  constructor(private _collegueServ: CollegueService) { }
 
   ngOnInit() {
+    this._collegueServ.listerCollegues()
+    .subscribe((listeCollegue:Collegue[]) => {
+      this.desCollegues = listeCollegue;
+    },(err => console.log(err)));
   }
 
   refresh() {

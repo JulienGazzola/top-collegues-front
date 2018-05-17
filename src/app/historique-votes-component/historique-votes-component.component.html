@@ -1,6 +1,6 @@
 <div class="row">
   <div class="card col-sm-6" *ngFor="let vote of votes">
-    <img class="card-img-top" src={{vote.collegue.photo}} alt="profil">
+    <img class="card-img-top" src={{vote.collegue.imageUrl}} alt="profil">
     <div class="card-body">
       <h5 class="card-title">{{vote.collegue.pseudo}}</h5>
       <div class="card-text" *ngIf="vote.avis == 0">{{vote.collegue.pseudo}} est aimé(e), il/elle a désormais un score de {{vote.collegue.score}}</div> <br>

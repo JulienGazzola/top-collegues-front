@@ -10,7 +10,7 @@
             </div>
     </div>
     <div class="row">
-            <div class="col-sm" *ngFor="let collegue of collegues | filter: saisiePseudo ">
+            <div class="col-sm" *ngFor="let collegue of desCollegues | filter: saisiePseudo ">
             <app-collegue-component [collegue]="collegue"></app-collegue-component>
         </div>
     </div>

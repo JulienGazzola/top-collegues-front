@@ -19,10 +19,9 @@ export class NewCollegueComponent implements OnInit {
 
   submit() {
     this._collegueServ.ajouterCollegue(this.collegue)
-      .then(c => {
+      .subscribe(c => {
         this.collegue = c;
         this.router.navigate(['/accueil'])
-      })
-      .catch(err => console.log(err));
+      }, err => console.log(err));
   }
 }

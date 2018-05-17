@@ -18,6 +18,7 @@ import { ScorePipe } from './pipes/score.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { FormsModule }   from '@angular/forms';
 import { NewCollegueComponent } from './new-collegue/new-collegue.component';
+import { VotreDernierAvisComponent } from './votre-dernier-avis/votre-dernier-avis.component';
 
 const appRoutes: Routes = [
   { path : 'accueil', component : AccueilComponent},
@@ -43,7 +44,8 @@ const appRoutes: Routes = [
     PageNonTrouveeComponent,
     ScorePipe,
     FilterPipe,
-    NewCollegueComponent
+    NewCollegueComponent,
+    VotreDernierAvisComponent
   ],
   imports: [
     BrowserModule,
